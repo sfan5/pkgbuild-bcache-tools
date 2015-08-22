@@ -1,6 +1,6 @@
 pkgname=bcache-tools
 _srcname=bcache-tools
-pkgver=0.9.112.gf45d84c
+pkgver=0.9.r112.gf45d84c
 pkgrel=1
 pkgdesc="Tools for bcache filesystem"
 arch=('i686' 'x86_64')
@@ -13,7 +13,7 @@ sha256sums=('SKIP')
 pkgver() {
   cd "${_srcname}"
 
-  git describe --tags --long | sed -E 's/^v//;s/-/./g'
+  git describe --tags --long | sed -E 's/^v//;s/([^-]*-g)/r\1/;s/-/./g'
 }
 
 build() {

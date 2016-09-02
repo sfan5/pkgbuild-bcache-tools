@@ -1,0 +1,17 @@
+pkgbase = bcache-tools
+	pkgdesc = Tools for bcache filesystem
+	pkgver = 0.9.r126.g580ec04
+	pkgrel = 1
+	url = http://bcache.evilpiepirate.org/Bcachefs/
+	arch = i686
+	arch = x86_64
+	license = GPL2
+	depends = util-linux
+	depends = libnih
+	depends = libscrypt
+	depends = libsodium
+	source = git+http://evilpiepirate.org/git/bcache-tools.git#branch=dev
+	sha256sums = SKIP
+
+pkgname = bcache-tools
+

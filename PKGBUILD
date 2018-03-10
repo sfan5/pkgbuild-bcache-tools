@@ -1,6 +1,6 @@
 pkgname=bcache-tools
 _srcname=bcachefs-tools
-pkgver=r335.4aefd5f
+pkgver=r342.2bb8cdf
 pkgrel=1
 pkgdesc="Tools for bcache filesystem"
 arch=('x86_64')
@@ -26,5 +26,6 @@ build() {
 package() {
   cd "${_srcname}"
 
-  make DESTDIR="${pkgdir}" ROOT_SBINDIR="/usr/bin" install
+  make DESTDIR="${pkgdir}" PREFIX="/usr" ROOT_SBINDIR="/usr/bin" install
+  rm -r "${pkgdir}/usr/share/initramfs-tools"
 }

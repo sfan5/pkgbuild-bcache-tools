@@ -1,6 +1,6 @@
 pkgbase = bcache-tools
 	pkgdesc = Tools for bcache filesystem
-	pkgver = r335.4aefd5f
+	pkgver = r342.2bb8cdf
 	pkgrel = 1
 	url = https://bcachefs.org/
 	arch = x86_64

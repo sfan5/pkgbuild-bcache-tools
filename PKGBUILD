@@ -1,11 +1,11 @@
 pkgname=bcache-tools
 _srcname=bcachefs-tools
-pkgver=r342.2bb8cdf
+pkgver=r361.17e2f27
 pkgrel=1
 pkgdesc="Tools for bcache filesystem"
 arch=('x86_64')
 url="https://bcachefs.org/"
-depends=('util-linux' 'libscrypt' 'libsodium' 'liburcu' 'zstd')
+depends=('util-linux' 'liblz4' 'libscrypt' 'libsodium' 'liburcu' 'zlib' 'zstd')
 makedepends=('linux-bcachefs-headers')
 license=('GPL2')
 source=("git+https://evilpiepirate.org/git/bcachefs-tools.git")
@@ -15,6 +15,13 @@ pkgver() {
   cd "${_srcname}"
 
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd "${_srcname}"
+
+  # fix wrong include path
+  sed 's|<attr/xattr\.h>|<sys/xattr.h>|' -i cmd_migrate.c
 }
 
 build() {

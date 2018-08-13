@@ -14,7 +14,11 @@ pkgbase = bcache-tools
 	depends = zlib
 	depends = zstd
 	source = git+https://evilpiepirate.org/git/bcachefs-tools.git
+	source = bcachefs-install
+	source = bcachefs-hooks
 	sha256sums = SKIP
+	sha256sums = 45e38cc030bc87b707589ccb2d9d80018292e3b00c4472ce497e409ffbaaf31b
+	sha256sums = 7e5e8c657b62e6a398d966c4fc1c837062c2595cf28ad49fe9eae61b29c27688
 
 pkgname = bcache-tools
 

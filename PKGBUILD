@@ -1,12 +1,12 @@
 pkgname=bcache-tools
 _srcname=bcachefs-tools
-pkgver=r472.62f5e4f
+pkgver=r513.1f7098c
 pkgrel=1
 pkgdesc="Tools for bcache filesystem"
 arch=('x86_64')
 url="https://bcachefs.org/"
-depends=('util-linux' 'libaio' 'libscrypt' 'libsodium' 'liburcu' 'lz4' 'zlib' 'zstd')
-makedepends=('linux-bcachefs-headers')
+depends=('fuse3' 'util-linux' 'libaio' 'libscrypt' 'libsodium' 'liburcu' 'lz4' 'zlib' 'zstd')
+makedepends=('linux-bcachefs-headers' 'valgrind')
 license=('GPL2')
 source=("git+https://evilpiepirate.org/git/bcachefs-tools.git"
         "bcachefs-install"

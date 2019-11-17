@@ -1,11 +1,13 @@
 pkgbase = bcache-tools
 	pkgdesc = Tools for bcache filesystem
-	pkgver = r472.62f5e4f
+	pkgver = r513.1f7098c
 	pkgrel = 1
 	url = https://bcachefs.org/
 	arch = x86_64
 	license = GPL2
 	makedepends = linux-bcachefs-headers
+	makedepends = valgrind
+	depends = fuse3
 	depends = util-linux
 	depends = libaio
 	depends = libscrypt

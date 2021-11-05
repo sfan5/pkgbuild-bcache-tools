@@ -1,6 +1,6 @@
 pkgbase = bcache-tools
 	pkgdesc = Tools for bcache filesystem
-	pkgver = r737.6c42566
+	pkgver = r796.5b84952
 	pkgrel = 1
 	url = https://bcachefs.org/
 	arch = x86_64
@@ -9,7 +9,6 @@ pkgbase = bcache-tools
 	makedepends = valgrind
 	depends = util-linux
 	depends = libaio
-	depends = libscrypt
 	depends = libsodium
 	depends = liburcu
 	depends = lz4

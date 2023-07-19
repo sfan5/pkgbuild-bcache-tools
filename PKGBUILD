@@ -1,12 +1,12 @@
 pkgname=bcache-tools
 _srcname=bcachefs-tools
-pkgver=r796.5b84952
+pkgver=r1081.c8bec83
 pkgrel=1
 pkgdesc="Tools for bcache filesystem"
 arch=('x86_64')
 url="https://bcachefs.org/"
 depends=('util-linux' 'libaio' 'libsodium' 'liburcu' 'lz4' 'zlib' 'zstd')
-makedepends=('linux-bcachefs-headers' 'valgrind')
+makedepends=('cargo' 'linux-bcachefs-headers' 'clang' 'valgrind')
 license=('GPL2')
 source=("git+https://evilpiepirate.org/git/bcachefs-tools.git"
         "bcachefs-install"
@@ -21,10 +21,17 @@ pkgver() {
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
+prepare() {
+  cd "${_srcname}/rust-src"
+  export RUSTUP_TOOLCHAIN=stable
+  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
+}
+
 build() {
   cd "${_srcname}"
 
-  make
+  export RUSTUP_TOOLCHAIN=stable
+  make CARGO_ARGS="--frozen"
 }
 
 package() {
